@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text to Clipboard</title>
+</head>
+<body>
+
+    <button id="copyButton" onclick="copyToClipboard()">Copy Text</button>
+
+    <!-- Hidden textarea with the text to be copied -->
+    <textarea id="textToCopy" style="display: none;">Hi.</textarea>
+
+    <script>
+        function copyToClipboard() {
+            // Get the text from the textarea
+            var text = document.getElementById("textToCopy").innerText;
+
+            // Create a temporary input element
+            var tempInput = document.createElement("textarea");
+            tempInput.value = text;
+
+            // Append the input element to the HTML document
+            document.body.appendChild(tempInput);
+
+            // Select the text in the input element
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the selected text to the clipboard
+            document.execCommand("copy");
+
+            // Remove the temporary input element
+            document.body.removeChild(tempInput);
+
+        }
+    </script>
+
+</body>
+</html>
