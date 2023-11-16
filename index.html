@@ -344,6 +344,86 @@ if (abs(z) > z_critical) {
 # Print the calculated z-score and critical z-value
 cat("z-score:", z, "\n")
 cat("Critical z-value:", z_critical, "\n")
+
+Question:
+The World Health Organization's (W.H.O.) recommended daily minimum of calories is 2600 per individual. The average number of calories 
+ingested per capita per day for the US is approximately 2460 with a standard deviation of 500. If we take a random sample of 64 individuals 
+from the US, what is the probability that the sample mean exceeds the W.H.O. minimum?
+
+Answer:
+# Parameters
+population_mean <- 2460  # mean calories ingested per capita per day for the US
+population_sd <- 500    # standard deviation of calories ingested per capita per day for the US
+sample_size <- 64       # sample size
+who_minimum <- 2600     # W.H.O. recommended daily minimum of calories
+
+# Calculate the standard error of the sample mean
+se_sample_mean <- population_sd / sqrt(sample_size)
+
+# Calculate the z-score for the W.H.O. minimum
+z_score <- (who_minimum - population_mean) / se_sample_mean
+
+# Calculate the probability using the z-score
+probability <- pnorm(z_score)
+
+# Print the result
+cat("Probability that the sample mean exceeds W.H.O. minimum:", 1 - probability, "\n")
+
+Question:
+Current research indicates that the distribution of the life expectancies of a certain protozoan is normal with a mean of 
+49 days and a standard deviation of 10.1 days. Find the probability that a simple random sample of 25 protozoa will have a mean 
+life expectancy of 54 or more days.
+
+Answer:
+# Parameters
+population_mean <- 49      # mean life expectancy of the protozoan
+population_sd <- 10.1      # standard deviation of life expectancy of the protozoan
+sample_size <- 25          # sample size
+desired_mean <- 54         # mean of interest
+
+# Calculate the standard error of the sample mean
+se_sample_mean <- population_sd / sqrt(sample_size)
+
+# Calculate the z-score for the desired mean
+z_score <- (desired_mean - population_mean) / se_sample_mean
+
+# Calculate the probability using the z-score
+probability <- pnorm(z_score)
+
+# Print the result
+cat("Probability that a sample of 25 protozoa has a mean life expectancy of 54 or more days:", 1 - probability, "\n")
+
+Question:
+In a large population, 82% of the households have cable tv. A simple random sample of 225 households is to 
+be contacted and the sample proportion computed. What is the mean and standard deviation of the sampling distribution of the sample proportions?
+
+Answer:
+# Parameters
+population_proportion <- 0.82  # proportion of households with cable tv in the population
+sample_size <- 225              # sample size
+
+# Calculate the mean of the sampling distribution
+mean_sampling_distribution <- population_proportion
+
+# Calculate the standard deviation of the sampling distribution
+sd_sampling_distribution <- sqrt((population_proportion * (1 - population_proportion)) / sample_size)
+
+# Print the results
+cat("Mean of the sampling distribution:", mean_sampling_distribution, "\n")
+cat("Standard deviation of the sampling distribution:", sd_sampling_distribution, "\n")
+
+Question:
+Which test statistic should be used when computing a confidence interval given only the number in a sample, 
+the population standard deviation and sample mean?
+
+Answer:
+Z
+
+Question:
+In a hypothesis test, if the computed P-value is greater than a specified level of significance, then we
+
+Answer:
+Fail to reject the null hypothesis.
     </textarea>
 
     <script>
